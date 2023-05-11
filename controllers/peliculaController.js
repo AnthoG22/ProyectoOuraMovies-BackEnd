@@ -86,7 +86,9 @@ const updateMovies = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Pelicula no encontrada')
     }
-    const likes = pelicula.vote_count +1
+    const likes = pelicula.vote_count
+
+    likes = likes +1
 
     const peliculaModificada = await Pelicula.findByIdAndUpdate(req.params.id, likes, { new: true })
 
