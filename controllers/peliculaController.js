@@ -90,7 +90,7 @@ const updateMovies = asyncHandler(async (req, res) => {
 
     likes = likes +1
 
-    const peliculaModificada = await Pelicula.findByIdAndUpdate(req.params.id, likes, { new: true })
+    const peliculaModificada = await Pelicula.findByIdAndUpdate(req.params.id, {vote_count : likes}, { new: true })
 
     res.status(200).json(peliculaModificada)
 })
